@@ -63,6 +63,8 @@ Util.isPrime = function(n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
+	if(!Number.isInteger(n)) throw "n should be an integer";
+	if(n < 0) throw "n should be positive";
 	var sum = 0;
 	for( i = 2 ; i < n ; i++) if(Util.isPrime(i)) sum += i;
 	return sum;
@@ -81,6 +83,8 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
+	if(!Number.isInteger(n)) throw "n should be an integer";
+	if(n < 0) throw "n should be positive";
 	var tab = new Array();
 	for( i = 1 ; i <= n ; i++){
 		if(i%3 === 0 && i%5 === 0) tab.push("FizzBuzz");
@@ -95,7 +99,7 @@ Util.fizzBuzz = function(n) {
  * Chiffre une phrase selon la règle suivante : Les A deviennent des B, les B des C, etc.
  *
  * Exp :
- * Util.cipher("Test Unitaire") => "Uftu Tojubjsf"
+ * Util.cipher("Test Unitaire") => "Uftu Vojubjsf"
  *
  * @param phrase
  * @returns {string}

@@ -158,3 +158,63 @@ describe("Validation nombre premier", function(){
 	});
 
 });
+
+// Test somme nombres premiers
+/*describe("Validation sumPrime", function(){
+
+	it("sumPrime(6) doit retourner false", function(){
+		var result = Util.sumPrime(6);
+		expect(result).toBe(10);
+	});
+
+	it("sumPrime(6) doit retourner false", function(){
+		var result = Util.sumPrime(8);
+		expect(result).toBe(17);
+	});
+
+	it("sumPrime(abc) doit retourner l'erreur 'n should be an integer'", function(){
+		var result = Util.sumPrime.bind(null, "abc");
+		expect(result).toThrow("n should be an integer");
+	});
+
+	it("sumPrime(-5) doit retourner l'erreur 'n should be positive'", function(){
+		var result = Util.sumPrime.bind(null, -5);
+		expect(result).toThrow("n should be positive");
+	});
+
+});*/
+
+// Test fizzBuzz
+/*describe("Validation fizzBuzz", function(){
+
+	it("sumPrime(6) doit retourner false", function(){
+		var result = Util.sumPrime(6);
+		expect(result).toBe(10);
+	});
+
+	it("sumPrime(6) doit retourner false", function(){
+		var result = Util.sumPrime(8);
+		expect(result).toBe(17);
+	});
+
+	it("sumPrime(abc) doit retourner l'erreur 'n should be an integer'", function(){
+		var result = Util.sumPrime.bind(null, "abc");
+		expect(result).toThrow("n should be an integer");
+	});
+
+	it("sumPrime(-5) doit retourner l'erreur 'n should be positive'", function(){
+		var result = Util.sumPrime.bind(null, -5);
+		expect(result).toThrow("n should be positive");
+	});
+
+});*/
+
+// Test cipher
+describe("Validation cipher", function(){
+
+	it("cipher(\"Test Unitaire\") doit retourner \"Uftu Tojubjsf\"", function(){
+		var result = Util.cipher("Test Unitaire");
+		expect(result).toBe("Uftu Vojubjsf");
+	});
+
+});
