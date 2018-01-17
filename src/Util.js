@@ -81,7 +81,7 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
-	var tab new Array();
+	var tab = new Array();
 	for( i = 1 ; i <= n ; i++){
 		if(i%3 === 0 && i%5 === 0) tab.push("FizzBuzz");
 		else if(i%3 === 0) tab.push("Fizz");
