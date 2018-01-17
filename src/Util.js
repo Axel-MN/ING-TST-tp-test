@@ -81,7 +81,14 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
-
+	var tab = new Array();
+	for( i = 1 ; i <= n ; i++){
+		if(i%3 === 0 && i%5 === 0) tab.push("FizzBuzz");
+		else if(i%3 === 0) tab.push("Fizz");
+		else if(i%3 === 0) tab.push("Buzz");
+		else tab.push(i);
+	}
+	return tab;
 };
 
 /**
@@ -94,5 +101,12 @@ Util.fizzBuzz = function(n) {
  * @returns {string}
  */
 Util.cipher = function (phrase) {
-
+	var cryptedPhrase = "";
+	for( i = 0 ; i < phrase.length ; i++){
+		if(phrase[i] === ' ') cryptedPhrase += " ";
+		else if(phrase[i] === 'Z') cryptedPhrase += "A";
+		else if(phrase[i] === 'z') cryptedPhrase += "a"; 
+		else cryptedPhrase += String.fromCharCode(phrase[i].charCodeAt(0) + 1);
+	}
+	return cryptedPhrase;
 };
