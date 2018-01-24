@@ -1,4 +1,4 @@
-/*describe("Interval - overlapping", function () {
+describe("Interval - overlapping", function () {
     testedInterval = new Interval(10, 20);
 
     [
@@ -23,4 +23,12 @@
             expect(testedInterval.overlaps(interval)).toBeFalsy();
         });
     });
-});*/
+});
+
+
+describe("Interval - includes", function(){
+    it("[0,10] should includes [2,5]", function(){
+        var result = (new Interval(0, 10)).includes(new Interval(2, 5));
+        expect(result).toBeTruthy();
+    });
+});
