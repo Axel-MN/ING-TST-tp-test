@@ -123,7 +123,7 @@ describe("Validation nombre premier", function(){
 	var testCases = [
 		{ 
 			n: 1,
-			isPrime: true
+			isPrime: false
 		},
 		{ 
 			n: 3,
@@ -160,14 +160,14 @@ describe("Validation nombre premier", function(){
 });
 
 // Test somme nombres premiers
-/*describe("Validation sumPrime", function(){
+describe("Validation sumPrime", function(){
 
-	it("sumPrime(6) doit retourner false", function(){
+	it("sumPrime(6) doit retourner 10", function(){
 		var result = Util.sumPrime(6);
 		expect(result).toBe(10);
 	});
 
-	it("sumPrime(6) doit retourner false", function(){
+	it("sumPrime(8) doit retourner 17", function(){
 		var result = Util.sumPrime(8);
 		expect(result).toBe(17);
 	});
@@ -182,32 +182,27 @@ describe("Validation nombre premier", function(){
 		expect(result).toThrow("n should be positive");
 	});
 
-});*/
+});
 
 // Test fizzBuzz
-/*describe("Validation fizzBuzz", function(){
+describe("Validation fizzBuzz", function(){
 
-	it("sumPrime(6) doit retourner false", function(){
-		var result = Util.sumPrime(6);
-		expect(result).toBe(10);
+	it("fizzBuzz(15) doit retourner [1, 2, \"Fizz\", 4, \"Buzz\", \"Fizz\", 7, 8, \"Fizz\", \"Buzz\", 11, \"Fizz\", 13, 14, \"FizzBuzz\"]", function(){
+		var result = Util.fizzBuzz(15);
+		expect(result).toEqual([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]);
 	});
 
-	it("sumPrime(6) doit retourner false", function(){
-		var result = Util.sumPrime(8);
-		expect(result).toBe(17);
-	});
-
-	it("sumPrime(abc) doit retourner l'erreur 'n should be an integer'", function(){
-		var result = Util.sumPrime.bind(null, "abc");
+	it("fizzBuzz(abc) doit retourner l'erreur 'n should be an integer'", function(){
+		var result = Util.fizzBuzz.bind(null, "abc");
 		expect(result).toThrow("n should be an integer");
 	});
 
-	it("sumPrime(-5) doit retourner l'erreur 'n should be positive'", function(){
-		var result = Util.sumPrime.bind(null, -5);
+	it("fizzBuzz(-5) doit retourner l'erreur 'n should be positive'", function(){
+		var result = Util.fizzBuzz.bind(null, -5);
 		expect(result).toThrow("n should be positive");
 	});
 
-});*/
+});
 
 // Test cipher
 describe("Validation cipher", function(){
@@ -215,6 +210,11 @@ describe("Validation cipher", function(){
 	it("cipher(\"Test Unitaire\") doit retourner \"Uftu Tojubjsf\"", function(){
 		var result = Util.cipher("Test Unitaire");
 		expect(result).toBe("Uftu Vojubjsf");
+	});
+
+	it("cipher(\"Venez\") doit retourner \"Wfofa\"", function(){
+		var result = Util.cipher("Venez");
+		expect(result).toBe("Wfofa");
 	});
 
 });

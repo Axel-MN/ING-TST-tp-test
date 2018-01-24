@@ -47,6 +47,7 @@ Util.combination = function(n, r) {
 Util.isPrime = function(n) {
 	if(!Number.isInteger(n)) throw "n should be an integer";
 	if(n < 0) throw "n should be positive";
+	if(n < 2) return false;
 	for( i = 2 ; i < n ; i++) if( ( n % i ) === 0) return false;
 	if( ( n % 1 ) === 0 ) return true;
 	return false;
@@ -66,7 +67,7 @@ Util.sumPrime = function(n) {
 	if(!Number.isInteger(n)) throw "n should be an integer";
 	if(n < 0) throw "n should be positive";
 	var sum = 0;
-	for( i = 2 ; i < n ; i++) if(Util.isPrime(i)) sum += i;
+	for(var i = 2 ; i <= n ; i++) if(Util.isPrime(i)) sum += i;
 	return sum;
 };
 
@@ -86,10 +87,10 @@ Util.fizzBuzz = function(n) {
 	if(!Number.isInteger(n)) throw "n should be an integer";
 	if(n < 0) throw "n should be positive";
 	var tab = new Array();
-	for( i = 1 ; i <= n ; i++){
+	for(var i = 1 ; i <= n ; i++){
 		if(i%3 === 0 && i%5 === 0) tab.push("FizzBuzz");
 		else if(i%3 === 0) tab.push("Fizz");
-		else if(i%3 === 0) tab.push("Buzz");
+		else if(i%5 === 0) tab.push("Buzz");
 		else tab.push(i);
 	}
 	return tab;
@@ -106,7 +107,8 @@ Util.fizzBuzz = function(n) {
  */
 Util.cipher = function (phrase) {
 	var cryptedPhrase = "";
-	for( i = 0 ; i < phrase.length ; i++){
+	for(var i = 0 ; i < phrase.length ; i++){
+		
 		if(phrase[i] === ' ') cryptedPhrase += " ";
 		else if(phrase[i] === 'Z') cryptedPhrase += "A";
 		else if(phrase[i] === 'z') cryptedPhrase += "a"; 
