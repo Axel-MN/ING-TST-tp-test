@@ -13,6 +13,7 @@ Interval.prototype.toString = function () {
  * @returns {boolean}
  */
 Interval.prototype.overlaps = function (interval) {
+	if(!(interval instanceof Interval)) throw "interval should be an Interval object";
     return this.end > interval.start && this.start < interval.end;
 };
 
@@ -23,6 +24,7 @@ Interval.prototype.overlaps = function (interval) {
  * @returns {boolean}
  */
 Interval.prototype.includes = function (interval) {
+	if(!(interval instanceof Interval)) throw "interval should be an Interval object";
 	return (this.start <= interval.start && interval.end <= this.end);
 };
 
@@ -32,6 +34,7 @@ Interval.prototype.includes = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.union = function (interval) {
+	if(!(interval instanceof Interval)) throw "interval should be an Interval object";
 	var intervals = [];
 	if(this.overlaps(interval)){
 		var start = (this.start < interval.start) ? this.start : interval.start;
@@ -51,6 +54,7 @@ Interval.prototype.union = function (interval) {
  * @returns {Interval|null}
  */
 Interval.prototype.intersection = function (interval) {
+	if(!(interval instanceof Interval)) throw "interval should be an Interval object";
 	if(this.overlaps(interval)){
 		var start = (this.start < interval.start) ? interval.start : this.start;
 		var end = (this.end > interval.end) ? interval.end : this.end;
@@ -66,6 +70,7 @@ Interval.prototype.intersection = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.exclusion = function (interval) {
+	if(!(interval instanceof Interval)) throw "interval should be an Interval object";
 	var intervals = [];
 	if(!this.includes(interval) || !interval.includes(this)){
 		// this and interval are not equal here
