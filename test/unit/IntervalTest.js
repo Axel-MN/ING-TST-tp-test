@@ -49,6 +49,11 @@ describe("Interval - union", function(){
         expect(result).toEqual([new Interval(0, 20)]);
     });
 
+    it("[5,20] U [0,10] should return [0,20]", function(){
+        var result = (new Interval(5, 20)).union(new Interval(0, 10));
+        expect(result).toEqual([new Interval(0, 20)]);
+    });
+
     it("[0,10] U [15,20] should return [[0,10], [15,20]]", function(){
         var result = (new Interval(0, 10)).union(new Interval(15, 20));
         expect(result).toEqual([new Interval(0, 10), new Interval(15, 20)]);
@@ -64,5 +69,27 @@ describe("Interval - intersection", function(){
     it("[0,10] ∩ [15,20] should return null", function(){
         var result = (new Interval(0, 10)).intersection(new Interval(15, 20));
         expect(result).toBeNull();
+    });
+});
+
+describe("Interval - exclusion", function(){
+    it("exclusion between [0,10] and [5,20] should return [[0,5], [10,20]]", function(){
+        var result = (new Interval(0, 10)).exclusion(new Interval(5, 20));
+        expect(result).toEqual([new Interval(0, 5), new Interval(10, 20)]);
+    });
+
+    it("exclusion between [0,10] and [0,10] should return []", function(){
+        var result = (new Interval(0, 10)).exclusion(new Interval(0, 10));
+        expect(result).toEqual([]);
+    });
+
+    it("exclusion between [0,10] and [5,10] should return [[0,5]]", function(){
+        var result = (new Interval(0, 10)).exclusion(new Interval(5, 10));
+        expect(result).toEqual([new Interval(0, 5)]);
+    });
+
+    it("exclusion between [0,10] and [15,20] should return [[0,10], [15,20]]", function(){
+        var result = (new Interval(0, 10)).exclusion(new Interval(15, 20));
+        expect(result).toEqual([new Interval(0, 10), new Interval(15, 20)]);
     });
 });
