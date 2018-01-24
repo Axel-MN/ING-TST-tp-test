@@ -23,6 +23,11 @@ describe("Interval - overlapping", function () {
             expect(testedInterval.overlaps(interval)).toBeFalsy();
         });
     });
+
+    it("overlaps(\"abc\") should return the error 'interval should be an Interval object'", function(){
+        var result = (new Interval(0, 10)).overlaps.bind(null, "abc");
+        expect(result).toThrow("interval should be an Interval object");
+    });
 });
 
 
@@ -41,6 +46,11 @@ describe("Interval - includes", function(){
         var result = (new Interval(0, 10)).includes(new Interval(5, 15));
         expect(result).toBeFalsy();
     });
+
+    it("includes(\"abc\") should return the error 'interval should be an Interval object'", function(){
+        var result = (new Interval(0, 10)).includes.bind(null, "abc");
+        expect(result).toThrow("interval should be an Interval object");
+    });
 });
 
 describe("Interval - union", function(){
@@ -58,6 +68,11 @@ describe("Interval - union", function(){
         var result = (new Interval(0, 10)).union(new Interval(15, 20));
         expect(result).toEqual([new Interval(0, 10), new Interval(15, 20)]);
     });
+
+    it("union(\"abc\") should return the error 'interval should be an Interval object'", function(){
+        var result = (new Interval(0, 10)).union.bind(null, "abc");
+        expect(result).toThrow("interval should be an Interval object");
+    });
 });
 
 describe("Interval - intersection", function(){
@@ -69,6 +84,11 @@ describe("Interval - intersection", function(){
     it("[0,10] ∩ [15,20] should return null", function(){
         var result = (new Interval(0, 10)).intersection(new Interval(15, 20));
         expect(result).toBeNull();
+    });
+
+    it("intersection(\"abc\") should return the error 'interval should be an Interval object'", function(){
+        var result = (new Interval(0, 10)).intersection.bind(null, "abc");
+        expect(result).toThrow("interval should be an Interval object");
     });
 });
 
@@ -91,5 +111,10 @@ describe("Interval - exclusion", function(){
     it("exclusion between [0,10] and [15,20] should return [[0,10], [15,20]]", function(){
         var result = (new Interval(0, 10)).exclusion(new Interval(15, 20));
         expect(result).toEqual([new Interval(0, 10), new Interval(15, 20)]);
+    });
+
+    it("exclusion(\"abc\") should return the error 'interval should be an Interval object'", function(){
+        var result = (new Interval(0, 10)).exclusion.bind(null, "abc");
+        expect(result).toThrow("interval should be an Interval object");
     });
 });
