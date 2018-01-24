@@ -51,7 +51,13 @@ Interval.prototype.union = function (interval) {
  * @returns {Interval|null}
  */
 Interval.prototype.intersection = function (interval) {
-
+	if(this.overlaps(interval)){
+		var start = (this.start < interval.start) ? interval.start : this.start;
+		var end = (this.end > interval.end) ? interval.end : this.end;
+		return new Interval(start, end);
+	} else {
+		return null;
+	}
 };
 
 /**
