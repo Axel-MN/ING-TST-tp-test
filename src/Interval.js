@@ -66,8 +66,20 @@ Interval.prototype.intersection = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.exclusion = function (interval) {
-
+	var intervals = [];
+	if(!this.includes(interval) || !interval.includes(this)){
+		// this and interval are not equal here
+		var intersect = this.intersection(interval);
+		if(intersect != null){
+			if(this.start < intersect.start) intervals.push(new Interval(this.start, intersect.start));
+			else if(interval.start < intersect.start) intervals.push(new Interval(interval.start, intersect.start));
+			if(this.end > intersect.end) intervals.push(new Interval(intersect.end, this.end));
+			else if(interval.end > intersect.end) intervals.push(new Interval(intersect.end, interval.end));
+		} else {
+			intervals.push(this);
+			intervals.push(interval);
+		}
+	}
+	
+	return intervals;
 };
-
-
-
