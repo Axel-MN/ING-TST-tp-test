@@ -54,3 +54,15 @@ describe("Interval - union", function(){
         expect(result).toEqual([new Interval(0, 10), new Interval(15, 20)]);
     });
 });
+
+describe("Interval - intersection", function(){
+    it("[0,10] ∩ [5,20] should return [5,10]", function(){
+        var result = (new Interval(0, 10)).intersection(new Interval(5, 20));
+        expect(result).toEqual(new Interval(5, 10));
+    });
+
+    it("[0,10] ∩ [15,20] should return null", function(){
+        var result = (new Interval(0, 10)).intersection(new Interval(15, 20));
+        expect(result).toBeNull();
+    });
+});
